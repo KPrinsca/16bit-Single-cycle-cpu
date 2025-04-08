@@ -17,7 +17,7 @@ module Data_Memory(
    // Memory read operation (handling byte addressing)
     // Memory read operation (handling byte addressing)
     	    assign DataM_out = (Mem_Read) ? {Memory[DMem_In],Memory[DMem_In+1]} : 16'b0;
-    always 	@(negedge clk)		   //Memory write
+    always 	@(posedge clk)		   //Memory write
    		begin
    		 if (Mem_Write) begin
     Memory[DMem_In] <= Data_Write[15:8];
