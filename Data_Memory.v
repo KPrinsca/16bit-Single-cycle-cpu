@@ -12,8 +12,16 @@ module Data_Memory(
     );
     
 
- reg 	[7:0] 	Memory[0:255];
- 
+    reg 	[7:0] 	Memory[255:0];
+
+integer i;
+initial begin
+  for (i = 0; i < 256; i = i + 1) begin
+    Memory[i] = 8'b0;
+  end
+end
+
+    
    // Memory read operation (handling byte addressing)
     // Memory read operation (handling byte addressing)
     	    assign DataM_out = (Mem_Read) ? {Memory[DMem_In],Memory[DMem_In+1]} : 16'b0;
