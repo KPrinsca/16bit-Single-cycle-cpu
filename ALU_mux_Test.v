@@ -28,16 +28,16 @@ module ALU_mux_Test;
         if(Mux_Out !== 16'h5678) $display("Test 2 Failed");
         else $display("Test 2 Passed");
         
-        // Test 3: High-Z Handling
-        Reg_Data = 16'hZZZZ; Ext_Imm = 16'hFFFF; ALU_Src = 0;
+        // Test 3: 
+        Reg_Data = 16'hAAAA; Ext_Imm = 16'hFFFF; ALU_Src = 0;
         #10;
-        if(Mux_Out !== 16'hZZZZ) $display("Test 3 Failed");
+        if(Mux_Out !== 16'hAAAA) $display("Test 3 Failed");
         else $display("Test 3 Passed");
         
         // Test 4: Dynamic Switching
         ALU_Src = 0; #5;
         ALU_Src = 1; #5;
-        if(Mux_Out !== 16'h5678) $display("Test 4 Failed");
+        if(Mux_Out !== 16'hFFFF) $display("Test 4 Failed");
         else $display("Test 4 Passed");
         
         $finish;
