@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module SignExtend_M_tb;
+module SignExtend_M_Test;
     reg [3:0] Imm;
     wire [15:0] Imm_Ex;
     
