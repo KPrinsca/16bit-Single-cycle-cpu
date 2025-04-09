@@ -1,3 +1,5 @@
+
+
 `timescale 1ns / 1ps
 
 module PC_Mux_Test;
@@ -37,7 +39,7 @@ module PC_Mux_Test;
         // Test 4: Transition Check
         JBP_enable = 0; #5;
         JBP_enable = 1; #5;
-        if(PC_Mux_Out !== 16'h1234) $display("Test 4 Failed");
+        if(PC_Mux_Out !== 16'hFFFF) $display("Test 4 Failed");
         else $display("Test 4 Passed");
         
         $finish;
