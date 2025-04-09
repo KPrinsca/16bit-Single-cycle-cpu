@@ -1,8 +1,7 @@
 
 
 module Instruction_Memory(
-    input clk,
-    input reset,
+
     input [15:0] Instruct_In,
     output  [15:0] Address_Read
     );
