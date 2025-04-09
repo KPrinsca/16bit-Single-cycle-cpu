@@ -3,8 +3,8 @@
 module Instruction_Memory(
     input clk,
     input reset,
-    input wire[15:0] Instruct_In,
-    output  wire[15:0] Address_Read
+    input [15:0] Instruct_In,
+    output  [15:0] Address_Read
     );
     
 
