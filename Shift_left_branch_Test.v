@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module Shift_left_branch_tb;
+module Shift_left_branch_Test;
     reg [15:0] Shift_Branch;
     wire [15:0] Shift_Branch_out;
     
