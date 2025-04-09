@@ -21,7 +21,7 @@ module CPU_16_TOP(
      program_counter program_counter(.clk(clk),.reset(reset),.PC_In(PC_Inst),.PC_output(Inst_PC_Out));
      
      //Instruction Memory
-      Instruction_Memory Instruction_Memory(.clk(clk),.reset(reset),.Instruct_In(Inst_PC_Out),.Address_Read(Inst_IM_out));
+      Instruction_Memory Instruction_Memory(.Instruct_In(Inst_PC_Out),.Address_Read(Inst_IM_out));
     
     //Register File
     assign Read_Reg1 = Inst_IM_out[7:4];
