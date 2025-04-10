@@ -26,7 +26,7 @@ integer i;
    assign Read_Data2 = Registers[Read_Reg_Add2];
 	
 	
-	always @(posedge clk)
+	always @(negedge clk)
    begin
         if (RegWrite) begin
             Registers[Write_Reg] <= Write_Data;
