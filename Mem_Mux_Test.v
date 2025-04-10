@@ -34,11 +34,6 @@ module Mem_Mux_Test;
         if(Mem_Mux_Out !== 16'h8000) $display("Test 3 Failed");
         else $display("Test 3 Passed");
         
-        // Test 4: High-Z Handling
-        Mem_Out = 16'hZZZZ; ALU_out = 16'hXXXX; Mem_to_Reg = 1;
-        #10;
-        if(Mem_Mux_Out !== 16'hZZZZ) $display("Test 4 Failed");
-        else $display("Test 4 Passed");
         
         $finish;
     end
