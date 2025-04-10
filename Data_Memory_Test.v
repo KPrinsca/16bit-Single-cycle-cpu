@@ -28,22 +28,22 @@ module Data_Memory_Test;
         // Test 2: Read Operation
         Mem_Write = 0; Mem_Read = 1;
         #10;
-        if(DataM_out !== 16'hABCD) $display("Test 2 Failed");
-        else $display("Test 2 Passed");
+        if(DataM_out !== 16'hABCD) $display("Test 1 Failed");
+        else $display("Test 1 Passed");
         
         // Test 3: Address Boundary
-        DMem_In = 16'hFFFE; Data_Write = 16'h1234; Mem_Write = 1; Mem_Read = 0;
+        DMem_In = 16'h00FE; Data_Write = 16'h1234; Mem_Write = 1; Mem_Read = 0;
         #10;
         Mem_Write = 0; Mem_Read = 1;
         #10;
-        if(DataM_out !== 16'h1234) $display("Test 3 Failed");
-        else $display("Test 3 Passed");
+        if(DataM_out !== 16'h1234) $display("Test 2 Failed");
+        else $display("Test 2 Passed");
         
         // Test 4: Concurrent RW
         DMem_In = 16'h0006; Data_Write = 16'h5678; Mem_Write = 1; Mem_Read = 1;
         #10;
-        if(DataM_out !== 16'h5678) $display("Test 4 Failed");
-        else $display("Test 4 Passed");
+        if(DataM_out !== 16'h5678) $display("Test 3 Failed");
+        else $display("Test 3 Passed");
         
         $finish;
     end
