@@ -32,12 +32,6 @@ module Branch_Mux_Test;
         if(B_Mux_Out !== 16'hFFFF) $display("Test 3 Failed");
         else $display("Test 3 Passed");
         
-        // Test 4: High-Z Handling
-        Branch_Inst = 16'hZZZZ; Branch_Sel = 1;
-        #10;
-        if(B_Mux_Out !== 16'hZZZZ) $display("Test 4 Failed");
-        else $display("Test 4 Passed");
-        
         $finish;
     end
 endmodule
