@@ -15,7 +15,7 @@ module Control_Unit(
            case(opcode)
             
                   4'b0000: begin 
-                  Reg_Write = 1'b1;
+                 
                      case(Funct_field)
                             4'b0000: ALU_op <= 4'b0000; 
                             4'b0001: ALU_op <= 4'b0001;
