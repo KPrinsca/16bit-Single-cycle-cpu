@@ -16,19 +16,16 @@ module Mem_Mux_Test;
     initial begin
         $display("\nTesting Mem_Mux:");
         
-        // Test 1: Select ALU
         Mem_Out = 16'h1234; ALU_out = 16'h5678; Mem_to_Reg = 0;
         #10;
         if(Mem_Mux_Out !== 16'h5678) $display("Test 1 Failed");
         else $display("Test 1 Passed");
-        
-        // Test 2: Select Memory
+
         Mem_to_Reg = 1;
         #10;
         if(Mem_Mux_Out !== 16'h1234) $display("Test 2 Failed");
         else $display("Test 2 Passed");
-        
-        // Test 3: Negative Values
+
         Mem_Out = 16'hFFFF; ALU_out = 16'h8000; Mem_to_Reg = 0;
         #10;
         if(Mem_Mux_Out !== 16'h8000) $display("Test 3 Failed");
