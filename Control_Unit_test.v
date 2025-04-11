@@ -91,7 +91,7 @@ module Control_Unit_test();
 
     task check_addi;
         begin
-            opcode = 4'b0011;  // ADDI
+            opcode = 4'b0011;  
             #10;
             if(ALU_op !== 4'b0000 || Reg_Write !== 1'b1 || 
                ALU_Src !== 1'b1 || Mem_to_Reg !== 1'b0 ||
@@ -111,7 +111,7 @@ module Control_Unit_test();
 
     task check_beq;
         begin
-            opcode = 4'b0100;  // BEQ
+            opcode = 4'b0100;  
             #10;
             if(ALU_op !== 4'b0001 || Branch !== 1'b1 || 
                Jump_Branch !== 1'b1 || ALU_Src !== 1'b0 ||
@@ -131,7 +131,7 @@ module Control_Unit_test();
 
     task check_bne;
         begin
-            opcode = 4'b0101;  // BNE
+            opcode = 4'b0101;  
             #10;
             if(ALU_op !== 4'b0001 || Branch !== 1'b1 || 
                Jump_Branch !== 1'b1 || ALU_Src !== 1'b0 ||
@@ -151,7 +151,7 @@ module Control_Unit_test();
 
     task check_jmp;
         begin
-            opcode = 4'b0110;  // JMP
+            opcode = 4'b0110;  
             #10;
             if(!(Jump === 1'b1 && 
                 Jump_Branch === 1'b1 && 
@@ -174,13 +174,13 @@ module Control_Unit_test();
         $display("Starting Control Unit Tests...");
         $display("---------------------------");
         
-        // Test R-type instructions
-        check_rtype(4'b0000, 4'b0000);  // ADD
-        check_rtype(4'b0001, 4'b0001);  // SUB
-        check_rtype(4'b0010, 4'b0010);  // SLL
-        check_rtype(4'b0011, 4'b0011);  // AND
         
-        // Test I-type and J-type instructions
+        check_rtype(4'b0000, 4'b0000);  
+        check_rtype(4'b0001, 4'b0001);  
+        check_rtype(4'b0010, 4'b0010);  
+        check_rtype(4'b0011, 4'b0011);  
+        
+        
         check_lw();
         check_sw();
         check_addi();

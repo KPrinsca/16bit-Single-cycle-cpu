@@ -11,7 +11,7 @@ module CPU_16_test();
 CPU_16_TOP uut(clk,reset,ALU_out,Program_cout,DATA_R1,DATA_R2,IM_output,ALUop,Rd,ALU_z,Read_Memory,B_int);
 
 initial begin
-        // Initialize Signals
+       
         clk = 1;
         reset = 1;
         #5
@@ -19,9 +19,9 @@ initial begin
         #500;  
     end
 
- // Generate Clock Signal (50% Duty Cycle)
+ 
  always begin
-    #5 clk = ~clk; // 10ns period (100MHz CPU)
+    #5 clk = ~clk; 
     end
 
 

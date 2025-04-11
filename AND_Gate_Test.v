@@ -14,25 +14,25 @@ module AND_Gate_Test;
     initial begin
         $display("\nTesting AND_Gate:");
         
-        // Test 1: Both High
+        
         Branch = 1; Zero_In = 1;
         #10;
         if(Branch_out !== 1) $display("Test 1 Failed");
         else $display("Test 1 Passed");
         
-        // Test 2: Branch Low
+        
         Branch = 0; Zero_In = 1;
         #10;
         if(Branch_out !== 0) $display("Test 2 Failed");
         else $display("Test 2 Passed");
         
-        // Test 3: Zero_In Low
+        
         Branch = 1; Zero_In = 0;
         #10;
         if(Branch_out !== 0) $display("Test 3 Failed");
         else $display("Test 3 Passed");
         
-        // Test 4: Both Low
+        
         Branch = 0; Zero_In = 0;
         #10;
         if(Branch_out !== 0) $display("Test 4 Failed");
