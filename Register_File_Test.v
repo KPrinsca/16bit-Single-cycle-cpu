@@ -27,28 +27,24 @@ module Register_File_tb;
         $display("\nTesting Register_File Module:");
         clk = 0;
         
-        // Test 1: Write/Read
         Write_Reg = 4'd2; Write_Data = 16'h1234; RegWrite = 1;
         Read_Reg_Add1 = 4'd2; Read_Reg_Add2 = 4'd0;
         #10;
         if(Read_Data1 !== 16'h1234) $display("Test 1 Failed");
         else $display("Test 1 Passed");
-        
-        // Test 2: Multi-Reg
+
         Write_Reg = 4'd3; Write_Data = 16'h5678; 
         #10;
         Read_Reg_Add1 = 4'd3;
         #10;
         if(Read_Data1 !== 16'h5678) $display("Test 2 Failed");
         else $display("Test 2 Passed");
-        
-        // Test 3: Write Disable
+
         RegWrite = 0; Write_Data = 16'h9ABC;
         #10;
         if(Read_Data1 === 16'h9ABC) $display("Test 3 Failed");
         else $display("Test 3 Passed");
-        
-        // Test 4: Dual Read
+
         Read_Reg_Add1 = 4'd2; Read_Reg_Add2 = 4'd3;
         #10;
         if(Read_Data1 !== 16'h1234 || Read_Data2 !== 16'h5678) $display("Test 4 Failed");
