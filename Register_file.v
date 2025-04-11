@@ -1,8 +1,8 @@
 
 module Register_File(
-    input [3:0] Read_Reg_Add1,//rs
-    input [3:0] Read_Reg_Add2,//rt/rd
-  input [3:0] Write_Reg,//rt/rd
+    input [3:0] Read_Reg_Add1,
+    input [3:0] Read_Reg_Add2,
+  input [3:0] Write_Reg,
     input [15:0] Write_Data,
     input RegWrite,
     input clk,
