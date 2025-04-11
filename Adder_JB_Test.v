@@ -14,25 +14,25 @@ module Adder_JB_Test;
     initial begin
         $display("\nTesting Adder_JB Module:");
         
-        // Test 1: Basic Addition
+        
         PC_out = 16'h0002; JB_In = 16'h0004;
         #10;
         if(JB_Add_out !== 16'h0006) $display("Test 1 Failed");
         else $display("Test 1 Passed");
         
-        // Test 2: Negative Numbers
+        
         PC_out = 16'hFFFE; JB_In = 16'hFFFF;
         #10;
         if(JB_Add_out !== 16'hFFFD) $display("Test 2 Failed");
         else $display("Test 2 Passed");
         
-        // Test 3: Overflow
+        
         PC_out = 16'hFFFF; JB_In = 16'h0001;
         #10;
         if(JB_Add_out !== 16'h0000) $display("Test 3 Failed");
         else $display("Test 3 Passed");
         
-        // Test 4: Zero Input
+        
         PC_out = 16'h0000; JB_In = 16'h0000;
         #10;
         if(JB_Add_out !== 16'h0000) $display("Test 4 Failed");

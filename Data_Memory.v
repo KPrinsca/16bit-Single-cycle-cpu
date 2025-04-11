@@ -2,15 +2,15 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 module Data_Memory(
-    input [15:0] DMem_In, // ALU Output
-    input [15:0] Data_Write, //From Register file
+    input [15:0] DMem_In, 
+    input [15:0] Data_Write, 
     input Mem_Write,
     input Mem_Read,
     input clk,
     output reg[15:0] DataM_out
     );
     
-//    reg 	[15:0] 	Memory[63:0];
+
  reg 	[7:0] 	Memory[255:0];
  
     integer i;
@@ -33,7 +33,7 @@ always@(*) begin
         end
 
 end
-    always 	@(negedge  clk)		   //Memory write
+    always 	@(negedge  clk)		 
    		begin
    		 if (Mem_Write) begin
     Memory[Mem_addr] <= Data_Write[15:8];
@@ -41,8 +41,7 @@ end
     end
   end
   
-  // Memory read operation (handling byte addressing)
-    // Memory read operation (handling byte addressing)
+
 
     
 endmodule

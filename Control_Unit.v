@@ -14,13 +14,13 @@ module Control_Unit(
 
            case(opcode)
             
-                  4'b0000: begin //R-type Instruction
+                  4'b0000: begin 
                   Reg_Write = 1'b1;
                      case(Funct_field)
-                            4'b0000: ALU_op <= 4'b0000; //add
-                            4'b0001: ALU_op <= 4'b0001; //sub
-                            4'b0010: ALU_op <= 4'b0010; //sll
-                            4'b0011: ALU_op <= 4'b0011; //and
+                            4'b0000: ALU_op <= 4'b0000; 
+                            4'b0001: ALU_op <= 4'b0001;
+                            4'b0010: ALU_op <= 4'b0010; 
+                            4'b0011: ALU_op <= 4'b0011; 
                             
                      endcase
                         Mem_Write = 0;
@@ -35,7 +35,7 @@ module Control_Unit(
                      end
             
                     
-            4'b0001: begin //LW Instruction
+            4'b0001: begin 
                     ALU_op <= 4'b0000;
                     Mem_Write = 0;
                     Mem_Read <= 1'b1;
@@ -47,7 +47,7 @@ module Control_Unit(
                     Jump_Branch = 0;  
                     end  
 
-            4'b0010: begin //SW Instruction
+            4'b0010: begin 
                     ALU_op <= 4'b0000;
                     Mem_Write <= 1'b1;
                     Mem_Read = 0;
@@ -59,7 +59,7 @@ module Control_Unit(
                     Jump_Branch = 0;  
                     end 
  
-             4'b0011: begin //addi Instruction
+             4'b0011: begin 
                     ALU_op <= 4'b0000;
                     Mem_Write = 0;
                     Mem_Read = 0;
@@ -71,7 +71,7 @@ module Control_Unit(
                     Jump_Branch = 0;  
                     end 
 
-            4'b0100: begin //beq Instruction
+            4'b0100: begin 
                     ALU_op <= 4'b0001;
                     Mem_Write = 0;
                     Mem_Read = 0;
@@ -83,7 +83,7 @@ module Control_Unit(
                     Jump_Branch <= 1'b1;  
                     end  
  
-            4'b0101: begin //bne Instruction
+            4'b0101: begin 
                     ALU_op <= 4'b0001;
                     Mem_Write = 0;
                     Mem_Read = 0;
@@ -95,7 +95,7 @@ module Control_Unit(
                     Jump_Branch <= 1'b1;  
                     end           
  
-            4'b0110: begin //jump Instruction
+            4'b0110: begin 
                     ALU_op <= 4'bxxxx;
                     Mem_Write = 0;
                     Mem_Read = 0;
