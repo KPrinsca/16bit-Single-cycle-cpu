@@ -91,7 +91,7 @@ module Control_Unit(
                     Reg_Write = 0;
                     Branch <= 1'b1;
                     Jump = 0;
-                    Reg_Write = 1;ALU_Src = 0;
+                    ALU_Src = 0;
                     Jump_Branch <= 1'b1;  
                     end           
  
