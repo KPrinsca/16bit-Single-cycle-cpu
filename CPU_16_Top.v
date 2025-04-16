@@ -1,4 +1,3 @@
-
 module CPU_16_TOP(
        input clk,
        input reset,
@@ -12,7 +11,7 @@ module CPU_16_TOP(
     wire [15:0] Inst_PC_Out, Write_Mem, ReadData1, ReadData2, ALU_O, PC_Inst, Jump_Inst, Branch_InstB;
     wire [15:0] Inst_IM_out, S_ExtendA_out, Mux_OutA, MemOut, PC2_Insts, JB_Ins, Extend_JOut, Extend_BOut, Jump_Mout, Branch_MOut;
     wire [3:0] Read_Reg1, Read_Reg2, Write_RegA, Opcode, Funct_code;  
-    wire RegWrite, ALU_Src,zero_i, MemWrite, MemRead, Mem_Reg, JB_sel, B_inst, Branch_Sel, J_inst;
+    wire RegWrite, ALU_Src,zero_i, MemWrite, MemRead, Mem_Reg, JB_sel, B_inst, Branch_Sel, J_inst,bne_sel,not_out,and2_out,orb_out;
     wire [3:0] S_ExtendA, ALUcont, B_Extend;
     wire [11:0] Jump_Extend;
     
@@ -72,7 +71,7 @@ module CPU_16_TOP(
     AND_Gate AND_Gate(.Branch(B_inst), .Zero_In(zero_i), .Branch_out(Branch_Sel));
     
         
-    Branch_Mux Branch_Mux(.Branch_Inst(Branch_InstB),.B_Mux_Out(Branch_MOut),.Branch_Sel(Branch_Sel));
+    Branch_Mux Branch_Mux(.Branch_Inst(Branch_InstB),.B_Mux_Out(Branch_MOut),.Branch_Sel(orb_out));
     
     
     Jump_Mux Jump_Mux(.Jump_Inst(Jump_Inst),.Branch_Inst(Branch_MOut),.Jump_sel(J_inst),.Jump_Mux_Out(Jump_Mout));
@@ -84,9 +83,14 @@ module CPU_16_TOP(
      assign Opcode =  Inst_IM_out[15:12];
       assign Funct_code =  Inst_IM_out[3:0];
     Control_Unit Control_Unit(.opcode(Opcode),.Funct_field(Funct_code),.ALU_op(ALUcont),.Mem_Write(MemWrite), .Mem_Read(MemRead),
-    .Mem_to_Reg(Mem_Reg),.Reg_Write(RegWrite),.Branch(B_inst),.Jump(J_inst),.ALU_Src(ALU_Src),.Jump_Branch(JB_sel));
+    .Mem_to_Reg(Mem_Reg),.Reg_Write(RegWrite),.Branch(B_inst),.Jump(J_inst),.ALU_Src(ALU_Src),.Jump_Branch(JB_sel),.bne_sig(bne_sel));
    
+   AND_2 AND_2(.BNE(bne_sel),.Zero_I(not_out),.BNE_OUT(and2_out));
    
+   NOT_G NOT_G(.n_zero(zero_i),.and_in(not_out));
+   
+   OR_G OR_G(.and_1(Branch_Sel),.and_2(and2_out),.be_bn_out(orb_out));
+    
 
    
    assign ALU_out  = ALU_O;
